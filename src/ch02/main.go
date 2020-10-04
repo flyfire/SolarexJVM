@@ -1,12 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 import "strings"
 import "ch02/classpath"
 
 func main() {
 	cmd := parseCmd()
 
+	javaHome := os.Getenv("JAVA_HOME")
+	println("javaHome = " + javaHome)
 	if cmd.versionFlag {
 		fmt.Println("version 0.0.1")
 	} else if cmd.helpFlag || cmd.class == "" {
